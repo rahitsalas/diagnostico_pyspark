@@ -14,7 +14,7 @@ class Transformer(Writer):
         #df.printSchema()
         df = self.clean_data(df)
         df = self.column_selection(df)
-        df.show(n=100, truncate=False)
+        #df.show(n=100, truncate=False)
         #df = self.example_window_function(df)
         #df = self.column_selection(df)
         df = self.column_age_selection(df, AGE_PARAM)
@@ -22,8 +22,8 @@ class Transformer(Writer):
         df = self.add_rank_nationality_team_position(df)
         df = self.add_potential_vs_overall(df)
         df = self.filter_player_cat_potential_vs_overall(df)
-
-
+        # df.show(n=100, truncate=False)
+        df = self.column_selection(df)
         # for show 100 records after your transformations and show the DataFrame schema
         df.show(n=100, truncate=False)
         # df.printSchema()
