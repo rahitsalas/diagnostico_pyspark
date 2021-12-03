@@ -12,3 +12,12 @@ class Writer:
             .partitionBy(team_position.name) \
             .mode(OVERWRITE) \
             .parquet(OUTPUT_PATH);
+
+    def write(self, df: DataFrame, file_quantity: int, colname: str):
+        df \
+            .coalesce(file_quantity) \
+            .write \
+            .partitionBy(colname) \
+            .mode(OVERWRITE) \
+            .parquet(OUTPUT_PATH);
+
